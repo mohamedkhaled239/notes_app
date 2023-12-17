@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomBottom extends StatelessWidget {
-  const CustomBottom({super.key, required this.namebutton, this.ontap});
+  const CustomBottom({super.key, required this.namebutton, this.ontap,  this.isLoading=false});
+    final bool isLoading;
     final String namebutton;
     final void Function()?ontap;
   @override
@@ -18,7 +19,7 @@ class CustomBottom extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: 55,
         child: Center(
-          child:  Text(namebutton,style: const TextStyle(color: Colors.black,fontSize: 18),),
+          child:  isLoading?const CircularProgressIndicator(color: Colors.white,strokeWidth : 3.0,strokeCap: StrokeCap.square,) :Text(namebutton,style: const TextStyle(color: Colors.black,fontSize: 18),),
         ),
       ),
     );
