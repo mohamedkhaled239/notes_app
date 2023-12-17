@@ -1,5 +1,4 @@
 
-import 'dart:ffi';
 
 import 'package:bloc/bloc.dart';
 import 'package:hive_flutter/adapters.dart';
