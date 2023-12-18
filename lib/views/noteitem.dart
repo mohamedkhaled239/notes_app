@@ -1,11 +1,14 @@
+
 import 'package:flutter/material.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_veiw.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({
-    super.key,
+   const NoteItem({
+    super.key, required this.note,
   });
-
+  final NoteModel note;
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,9 +30,9 @@ class NoteItem extends StatelessWidget {
             children: [
               ListTile(
                
-                title: const Text(
-                  'Flutter title',
-                  style: TextStyle(
+                title:  Text(
+                  note.title,
+                  style: const TextStyle(
                     fontSize: 26,
                     color: Colors.black,
                   ),
@@ -37,7 +40,7 @@ class NoteItem extends StatelessWidget {
                 subtitle: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Text(
-                    'Fluttertitle ia mad fa sfjfsa fdsdgsdgsdg',
+                    note.subtitle,
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.black.withOpacity(.4),
@@ -45,7 +48,9 @@ class NoteItem extends StatelessWidget {
                   ),
                 ),
                 trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                   // note.delete();
+                  },
                   icon: const Icon(
                     Icons.delete,
                     color: Colors.black,
@@ -56,7 +61,7 @@ class NoteItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 24),
                 child: Text(
-                  "24Dec/2023",
+                  note.date,
                   style: TextStyle(
                     color: Colors.black.withOpacity(.4),
                   ),

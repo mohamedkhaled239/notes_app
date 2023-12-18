@@ -11,7 +11,8 @@ List<NoteModel>?notes;
   fetchallNotes() async {
     
       var notesBox = Hive.box<NoteModel>('notes_box');
-      notes = notesBox.values.toList();
+      notes =notesBox.values.toList();
+      emit(NotesSuccess(notes!));
    
   }
 }
