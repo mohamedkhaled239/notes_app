@@ -12,7 +12,7 @@ List<NoteModel>?notes;
     
       var notesBox = Hive.box<NoteModel>('notes_box');
       notes =notesBox.values.toList();
-      emit(NotesSuccess(notes!));
+      emit(NotesSuccess());
    
   }
 }
