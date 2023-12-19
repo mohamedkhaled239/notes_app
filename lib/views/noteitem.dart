@@ -18,13 +18,13 @@ class NoteItem extends StatelessWidget {
       child: GestureDetector(
         onTap: (){
           Navigator.push(context, MaterialPageRoute(builder: (context){
-            return const EditNoteVeiw();
+            return  EditNoteVeiw(note: note,);
           }),);
         },
         child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 16),
           decoration: BoxDecoration(
-            color: Colors.yellow,
+            color: const Color.fromARGB(255, 255, 246, 164),
             borderRadius: BorderRadius.circular(16),
           ),
           child: Column(
