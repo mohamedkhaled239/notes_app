@@ -22,49 +22,51 @@ class _EditNoteVeiwBodyState extends State<EditNoteVeiwBody> {
   String? title, subtitle;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 1),
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 50,
-          ),
-          CustomAppBar(
-            oPressed: () {
-              widget.note.title = title ??
-                  widget.note.title; //if new title equal null Show old title
-              widget.note.subtitle = subtitle ??
-                  widget.note
-                      .subtitle; //if new subtitle equal null Show old subtitle
-              widget.note.save();
-              BlocProvider.of<NotesCubit>(context).fetchallNotes();
-              Navigator.pop(context);
-            },
-            title: 'Edit Note',
-            icon: Icons.edit,
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          CustomTextFeild(
-              onChanged: (value) {
-                title = value;
+    return SingleChildScrollView(
+      child: Padding(
+        padding:  EdgeInsets.only(left: 16,right: 16 ,bottom: MediaQuery.of(context).viewInsets.bottom),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 50,
+            ),
+            CustomAppBar(
+              oPressed: () {
+                widget.note.title = title ??
+                    widget.note.title; //if new title equal null Show old title
+                widget.note.subtitle = subtitle ??
+                    widget.note
+                        .subtitle; //if new subtitle equal null Show old subtitle
+                widget.note.save();
+                BlocProvider.of<NotesCubit>(context).fetchallNotes();
+                Navigator.pop(context);
               },
-              texthint: 'title'),
-          const SizedBox(
-            height: 15,
-          ),
-          CustomTextFeild(
-            onChanged: (value) {
-              subtitle = value;
-            },
-            texthint: 'subtitle',
-            maxlines: 5,
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-        ],
+              title: 'Edit Note',
+              icon: Icons.edit,
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            CustomTextFeild(
+                onChanged: (value) {
+                  title = value;
+                },
+                texthint: 'title'),
+            const SizedBox(
+              height: 15,
+            ),
+            CustomTextFeild(
+              onChanged: (value) {
+                subtitle = value;
+              },
+              texthint: 'subtitle',
+              maxlines: 5,
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+          ],
+        ),
       ),
     );
   }
