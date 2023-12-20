@@ -19,3 +19,6 @@ final class NotesLoading extends NotesState {}
 
   NotesFailure(this.errmassage);
 }*/
+final class Notescompelete extends NotesState {
+  
+}

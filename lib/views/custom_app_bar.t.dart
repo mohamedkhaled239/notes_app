@@ -5,11 +5,11 @@ import 'package:notes_app/views/custom_search_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
-    Key? key,
+    super.key,
     required this.title,
     required this.icon,
     this.oPressed,
-  }) : super(key: key);
+  });
   final String title;
   final IconData icon;
   final void Function()? oPressed;

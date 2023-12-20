@@ -9,9 +9,9 @@ import 'package:notes_app/views/custom_text_feild.dart';
 
 class EditNoteVeiwBody extends StatefulWidget {
   const EditNoteVeiwBody({
-    Key? key,
+    super.key,
     required this.note,
-  }) : super(key: key);
+  });
   final NoteModel note;
 
   @override
